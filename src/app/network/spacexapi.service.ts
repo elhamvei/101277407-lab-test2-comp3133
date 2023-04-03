@@ -5,10 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class MissionService {
-  private missionsSource = new BehaviorSubject<any[]>([]);
-  missions$ = this.missionsSource.asObservable();
-  public missionList: any[] = [];
+export class SpacexApiService {
 
   constructor(private http: HttpClient) { }
 
@@ -22,10 +19,5 @@ export class MissionService {
 
   getMissionDetails(flightNumber: number) {
     return this.http.get(`https://api.spacexdata.com/v3/launches/${flightNumber}`);
-  }
-
-  updateMissions(data: any[]): void {
-    this.missionList = data
-    this.missionsSource.next(data);
   }
 }

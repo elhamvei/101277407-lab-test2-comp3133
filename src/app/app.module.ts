@@ -9,17 +9,20 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { MissionlistComponent } from './missionlist/missionlist.component';
 import { MissionFilterComponent } from './missionfilter/missionfilter.component';
+import { MissionDetailsComponent } from './missiondetails/missiondetails.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MissionlistComponent,
     MissionFilterComponent,
+    MissionDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +35,7 @@ import { MissionFilterComponent } from './missionfilter/missionfilter.component'
     MatGridListModule,
     MatTabsModule,
     HttpClientModule,
+    MatDialogModule,
     FormsModule,
   ],
   providers: [],

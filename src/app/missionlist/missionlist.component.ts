@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MissionService } from '../mission.service';
+import { SpacexApiService } from '../network/spacexapi.service';
+import { MatDialog } from '@angular/material/dialog';
+import { MissionDetailsComponent } from '../missiondetails/missiondetails.component';
+
 
 @Component({
   selector: 'app-missionlist',
@@ -8,11 +11,18 @@ import { MissionService } from '../mission.service';
 export class MissionlistComponent implements OnInit {
   missions: any[] = [];
 
-  constructor(private missionService: MissionService) { }
+  constructor(private spacexApiService: SpacexApiService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.missionService.getAllMissions().subscribe(data => {
+    this.spacexApiService.getAllMissions().subscribe(data => {
       this.missions = data;
     });
   }
+
+  openDialog(flight_number: any): void {
+    this.dialog.open(MissionDetailsComponent, {
+      data: { flight_number },
+    });
+  }
+
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MissionService } from '../mission.service';
+import { SpacexApiService } from '../network/spacexapi.service';
 
 @Component({
   selector: 'app-missionfilter',
@@ -10,7 +10,7 @@ export class MissionFilterComponent implements OnInit {
   selectedYear: string = "";
   missions: any[] = [];
 
-  constructor(private missionService: MissionService) {
+  constructor(private spacexApiService: SpacexApiService) {
     const currentYear = new Date().getFullYear();
     for (let year = 2006; year <= currentYear; year++) {
       this.years.push(year);
@@ -23,12 +23,12 @@ export class MissionFilterComponent implements OnInit {
 
   filterByYear(): void {
     if (this.selectedYear && Number(this.selectedYear)) {
-      this.missionService.filterMissionsByYear(Number(this.selectedYear)).subscribe(data => {
+      this.spacexApiService.filterMissionsByYear(Number(this.selectedYear)).subscribe(data => {
         this.missions=data;
         console.log('filter',data);
       });
     } else {
-      this.missionService.getAllMissions().subscribe(data => {
+      this.spacexApiService.getAllMissions().subscribe(data => {
         this.missions=data;
         console.log('all',data);
       });

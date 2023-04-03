@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MissionService } from './mission.service';
+import { SpacexApiService } from './spacexapi.service';
 
 describe('MissionService', () => {
-  let service: MissionService;
+  let service: SpacexApiService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(MissionService);
+    service = TestBed.inject(SpacexApiService);
   });
 
   it('should be created', () => {

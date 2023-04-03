@@ -1,7 +1,7 @@
 <mat-toolbar color="primary">
     <span>SpaceX Missions - FILTER List</span>
   </mat-toolbar>
-<select [(ngModel)]="selectedYear" (change)="filterByYear()">
+<select [(ngModel)]="selectedYear" (change)="filterByYear()" style="font-size: 24px;">
     <option value="">All</option>
     <option  *ngFor="let year of years" value="{{ year }}">{{year}}</option>
   </select>
@@ -14,9 +14,9 @@
         </mat-card-header>
         <img mat-card-image [src]="mission.links.mission_patch_small" [alt]="mission.mission_name" style="height: 200px;">
         <mat-card-content>
-            <p style="color: green;">
+            <b style="color: brown;">
                 {{ mission.launch_year }}
-            </p>
+            </b>
           <p>
             {{ mission.details }}
           </p>

@@ -1,1 +1,6 @@
-<p>missiondetails works!</p>
+<div *ngIf="mission" style="max-width: 90%; margin: 10px 20px;">
+    <h2>{{ mission.mission_name }} Details</h2>
+    <p><strong>Launch Year:</strong> {{ mission.launch_year }}</p>
+    <p><strong>Mission Details:</strong> {{ mission.details }}</p>
+    <img [src]="mission.links.mission_patch_small" [alt]="mission.mission_name" style="height: 200px;">
+</div>
