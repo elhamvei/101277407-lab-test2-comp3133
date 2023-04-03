@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+    <span>SpaceX Missions - Mission List</span>
+  </mat-toolbar>
+  
+  <mat-grid-list cols="3" rowHeight="450px" gutterSize="16px">
+    <mat-grid-tile *ngFor="let mission of missions">
+      <mat-card style="width: 90%; height: 90%;">
+        <mat-card-header>
+          <mat-card-title>{{ mission.mission_name }}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image [src]="mission.links.mission_patch_small" [alt]="mission.mission_name" style="height: 200px;">
+        <mat-card-content>
+            <p style="color: green;">
+                {{ mission.launch_year }}
+            </p>
+          <p>
+            {{ mission.details }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
